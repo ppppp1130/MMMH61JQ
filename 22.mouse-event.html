@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <button class="btn btn-primary">button</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        // 快速點擊兩次，實際上會觸發兩次 click 以及一次 dblclick
+        $('.btn').click(function () {
+            console.log('click');
+        });
+
+        // 單純的執行一次命令，沒辦法再呼叫
+        // 如果想重複執行，麻煩包在一個 function 裡面
+        console.log('dblclick1');
+
+        // 綁定監聽器的機制，到底是怎麼運作的？
+        $('.btn').dblclick(function () {
+            console.log('dblclick2');
+
+            // 因為還沒執行 dblclick 事件的 function之前
+            // 不會綁定這個事件到 .btn 身上。
+            // 變成你要等到使用者 dblclick btn 之後才綁定右鍵
+            $('.btn').contextmenu(function () {
+                console.log('contextmenu');
+            });
+        });
+
+        console.log('dblclick3');
+
+        // coding style
+        // airbnb 推崇不加分號當結尾
+        $('.btn').mousedown(function () {
+            console.log('mousedown');
+        });
+
+        $('.btn').mouseup(function () {
+            console.log('mouseup');
+        });
+
+        $('.btn').mouseenter(function () {
+            console.log('mouseenter');
+            $(this).css('background-color', 'red');
+        });
+
+        $('.btn').mouseleave(function () {
+            console.log('mouseleave');
+            $(this).css('background-color', '#007bff');
+        });
+
+        $('.btn').hover(function () {
+            console.log('hover in');
+        }, function () {
+            console.log('hover leave');
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

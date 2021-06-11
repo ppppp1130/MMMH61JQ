@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+
+<body>
+    <script>
+        // 函式的名字
+        function abc() {
+            console.log('abc');
+        }
+
+        // abc();
+
+        // 匿名函式
+        // 通常用在只執行一次，而且會立即執行(後面帶小括號)。
+        // (function () {
+        //     console.log('no name');
+        // })();
+
+        // ES6 宣告函式的方式改變，用 const 去宣告一個匿名函式。
+        const def = function () {
+            console.log('def');
+        };
+
+        // def();
+
+        // function 後面的小括號，到底要幹嘛？
+        // 其實是因為，裡面可以用來傳遞參數使用的，不傳值進去就留空。
+        // 例如我這邊寫一個加法的 function，傳進來的值會自己相加得到結果。
+        function add(a, b) {
+            console.log(a);
+            console.log(b);
+            console.log(a + b);
+        }
+
+        // add(123, 456);
+        // add(555, 666);
+
+        function minus(a, b) {
+            // console.log(a);
+            // console.log(b);
+            console.log(a - b);
+        }
+
+        // minus(10, 5);
+        // minus(20, 5);
+
+        function multiple(a, b) {
+            console.log(a * b);
+        }
+
+        // multiple(2, 4);
+
+        function divide(a, b) {
+            console.log(a / b);
+        }
+
+        // divide(8, 4);
+
+        // return 回傳，把一個計算後的結果回傳回去。
+        // 所以我們必須要有一個變數去承接這個回傳的結果。
+        // 在 js 命名通常用小駝峰，開頭小寫，之後每個單字首文字大寫
+        function returnAddResult(a, b) {
+            return (a + b);
+        }
+
+        const myResult = returnAddResult(1, 2);
+        console.log(myResult);
+        const myResult2 = returnAddResult(3, 4);
+        console.log(myResult2);
+        console.log(myResult + myResult2);
+
+        // ES6 箭頭函式，我們用 ()=> 來表示 function 的簡稱
+        // jQuery 是不接受箭頭函式的寫法
+
+        function normalFunc1() {
+            console.log('normalFunc 1');
+        }
+
+        const normalFunc2 = function () {
+            console.log('normalFunc 2');
+        }
+
+        const arrowFunc = () => {
+            console.log('arrowFunc');
+        }
+
+        arrowFunc();
+
+        // 基本上就是偷懶到極致的作法，非常多簡寫
+        // 箭頭函式的 retrun ，如果只有一行，可以省略return 跟大括號。
+        const myAdd = (a, b) => a + b;
+
+        const myResult3 = myAdd(10, 2);
+        console.log(myResult3);
+
+        // 箭頭函式如果只有一個參數，也可以省略小括號
+        const logMyString = str => console.log('str:', str);
+        logMyString(123);
+
+
+    </script>
+</body>
+
+</html>
