@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label class="form-check-label" for="exampleCheck1">Check me out to see password</label>
                 </div>
                 <button type="button" class="btn btn-info auto-input">Auto Input</button>
                 <button type="submit" class="btn btn-primary submit">Submit</button>
@@ -52,6 +52,8 @@
             console.log('hi');
             console.log(event);
             $('#exampleInputUsername').val('John');
+            $('#exampleInputEmail1').val('John@gmail.com');
+            $('#exampleInputPassword1').val('123456');
         });
 
         $('.submit').click(function () {
@@ -59,6 +61,22 @@
             console.log('hi submit');
             // 自己用 ajax 送表單內容給伺服器
         });
+
+        $('#exampleCheck1').click(function () {
+            console.log('hi');
+            if ($(this).prop("checked")) {
+                // password 看得見
+                console.log('true');
+                $('#exampleInputPassword1').attr('type', 'text');
+            }
+            else {
+                // password 看不見
+                console.log('false');
+                $('#exampleInputPassword1').attr('type', 'password');
+            }
+
+        });
+
     </script>
 </body>
 
