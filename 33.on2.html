@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <button class="btn btn-primary">btn</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        // 這裡是用 JS 的 Object 物件的概念來放多組事件資料
+        // Object 最外面會用大括號 {} 
+        // 裡面的話，左邊是 key, 右邊是 value, 中間用 : 冒號隔開，是一組資料。
+        // 多組資料的話，會用逗號隔開。
+        $('.btn').on(
+            {
+                click: function () {
+                    console.log('click');
+                },
+                mouseenter: function () {
+                    console.log('mouseenter');
+                },
+                mouseleave: function () {
+                    console.log('mouseleave');
+                }
+
+            }
+        )
+    </script>
+</body>
+
+</html>
