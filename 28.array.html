@@ -11,9 +11,9 @@
 <body>
     <script>
         const myArray = ["第零個資料", "第一個資料", "第二個資料", "第三個資料", "第四個資料"];
-        console.log('myArray', myArray);
-        console.log('myArray[0]', myArray[0]);
-        console.log('myArray[1]', myArray[1]);
+        // console.log('myArray', myArray);
+        // console.log('myArray[0]', myArray[0]);
+        // console.log('myArray[1]', myArray[1]);
 
         const districtArray = [
             ['七堵', '中正', '暖暖'],
@@ -22,10 +22,10 @@
         ];
 
         // 二維陣列
-        console.log('districtArray', districtArray);
-        console.log('districtArray[0][0]', districtArray[0][0]);
-        console.log('districtArray[1][1]', districtArray[1][1]);
-        console.log('districtArray[2][0]', districtArray[2][0]);
+        // console.log('districtArray', districtArray);
+        // console.log('districtArray[0][0]', districtArray[0][0]);
+        // console.log('districtArray[1][1]', districtArray[1][1]);
+        // console.log('districtArray[2][0]', districtArray[2][0]);
 
         // 關於陣列，JS有很多方法(Method)可以使用。
         // 通常都是為了要處理陣列裡面的每一筆資料所以使用這些方法。
@@ -35,13 +35,61 @@
         // 迴圈的意思是：資料有幾筆，就會執行幾次 function
         // element 就是每次迴圈拿的一筆資料，每次都拿不同筆，直到跑完迴圈為止
         // 以districtArray陣列為例，我們迴圈會執行三次，總共拿三次 element
-        districtArray.forEach(function (element) {
-            console.log('element:', element);
+        // districtArray.forEach(function (element) {
+        //     console.log('element:', element);
 
-            element.forEach(function (item) {
-                console.log('item:', item);
-            })
-        });
+        //     element.forEach(function (item) {
+        //         console.log('item:', item);
+        //     })
+        // });
+
+        // 最基礎的迴圈(for...loop) 
+        for (var i = 0; i < 3; i++) {
+            // console.log('i:', districtArray[i]); // i = 0;
+            for (var j = 0; j < 3; j++) {
+                // console.log('j:', districtArray[i][j]);
+            }
+        }
+
+        // 如果我們知道要跑的次數 = 全部的資料個數有幾筆的話
+        // 那我們設定條件的地方，會改成[陣列的長度] (array.length)
+        for (var i = 0; i < districtArray.length; i++) {
+
+            // console.log('i:', districtArray[i]); // i = 0;
+
+            for (var j = 0; j < districtArray[i].length; j++) {
+                // console.log('j:', districtArray[i][j]);
+            }
+
+        }
+
+        // 非同步
+        // JS 是單執行緒，如果中間被阻擋了，後面就不會再執行。
+        // 在需要等待的時候，為了不阻礙執行流程，我們會把這件事丟給瀏覽器提供的 API 
+        // 常見的就是 SetTimeout, SetInterval, Ajax...
+        // 這個秒數並不是絕對準確的，頂多只能說是最少等幾秒後才會執行，可能會超過這秒數
+        // 如果我的主線程執行時間超過這個等待的秒數，那必須等我執行完，才可以執行setTimeout的東西。
+
+        // setTimeout(() => {
+        //     console.log('hi');
+        // }, 3000);
+
+
+        // 最基礎的迴圈(for...loop) + setTimeout
+        for (var i = 0; i < 3; i++) {
+            setTimeout(() => {
+                console.log('var i:', i);
+            }, 100);
+        }
+
+        // ES5 必須使用閉包的概念才能解決這個變數的問題
+        // 閉包創建一個封閉的環境，裡面的變數會被鎖定在當時的數值。
+        // ES6 的解決辦法，直接把宣告方式改成 let 來解決即可。
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+                console.log('let i:', i);
+            }, 100);
+        }
 
     </script>
 </body>
