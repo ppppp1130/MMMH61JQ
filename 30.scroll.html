@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll</title>
+    <style>
+        body {
+            height: 300vh;
+            width: 300%;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $(window).scroll(function () {
+            console.log('scrollTop:', $(window).scrollTop());
+            console.log('scrollLeft:', $(window).scrollLeft());
+        });
+
+        $(window).resize(function () {
+            console.log('width:', $(window).width());
+            console.log('height:', $(window).height());
+        });
+
+    </script>
+</body>
+
+</html>
