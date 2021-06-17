@@ -24,17 +24,25 @@
         .box {
             width: 100px;
             height: 100px;
-            background-color: lightpink;
+            /* background-color: lightpink; */
             position: absolute;
             top: 0;
             left: 300px;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
     </style>
 </head>
 
 <body>
     <div class="wrap">
-        <div class="box"></div>
+        <div class="box">
+            <img src="./imgs/airplane.png" alt="">
+        </div>
     </div>
 
     <div class="py-3 text-center">
@@ -62,7 +70,27 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
+        $(document).on('keydown', function () {
+            // console.log('hi', event);
 
+            if (event.which === 39) {
+                // 代表使用者按了右鍵
+                console.log('right');
+            }
+
+            if (event.which === 37) {
+                // 代表使用者按了左鍵
+                console.log('left');
+            }
+            if (event.which === 38) {
+                // 代表使用者按了上鍵
+                console.log('up');
+            }
+            if (event.which === 40) {
+                // 代表使用者按了下鍵
+                console.log('down');
+            }
+        });
     </script>
 </body>
 
