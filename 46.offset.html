@@ -33,18 +33,24 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
+        // 簡單取得 offset 數值的方法
         console.log('.box offset:', $('.box').offset());
+        console.log('.box offset top:', $('.box').offset().top);
+        console.log('.box offset left:', $('.box').offset().left);
 
+        // 複雜的實際運用情況：
+        // $(window).scroll(function () {
+        //     console.log('scolltop', $(window).scrollTop());
+        //     console.log('height', $(window).height());
+        //     console.log('minus', $(window).scrollTop() - $(window).height());
 
-        $(window).scroll(function () {
-            console.log('scolltop', $(window).scrollTop());
-            console.log('height', $(window).height());
-            console.log('minus', $(window).scrollTop() - $(window).height());
-
-            if (($(window).scrollTop()) > $('.box').offset().top - $(window).height() + 100) {
-                $('.box').css('background-color', 'red');
-            }
-        });
+        //     if (($(window).scrollTop()) > $('.box').offset().top - $(window).height() + 100) {
+        //         $('.box').css('background-color', 'red');
+        //     }
+        //     else {
+        //         $('.box').css('background-color', '#afa');
+        //     }
+        // });
     </script>
 </body>
 
