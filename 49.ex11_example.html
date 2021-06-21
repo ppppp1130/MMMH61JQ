@@ -110,6 +110,52 @@
             font-size: 2rem;
             margin: 10px;
         }
+
+        .intro {
+            margin-top: 100px;
+        }
+
+        .intro .title {
+            font-size: 5rem;
+        }
+
+        .intro .title::after {
+            content: "";
+            display: block;
+            width: 300px;
+            height: 20px;
+            background-color: #afa;
+            margin-top: -30px;
+        }
+
+        .intro-wrap {
+            position: relative;
+            margin-top: 200px;
+        }
+
+        .intro-wrap p {
+            width: 40%;
+            background-color: rgba(27, 199, 33, 0.618);
+            padding: 30px;
+            border: 2px green dashed;
+            position: absolute;
+            right: -50px;
+            top: -100px;
+        }
+
+        .intro-wrap:nth-child(2n-1) p {
+            left: -50px;
+        }
+
+        .intro-wrap img {
+            width: 80%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .intro-wrap:nth-child(2n-1) img {
+            margin-left: 200px;
+        }
     </style>
 </head>
 
@@ -149,6 +195,48 @@
             <i class="fas fa-shopping-cart"></i>
         </div>
     </nav>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="intro">
+                    <h2 class="title">Kyoto</h2>
+                    <div class="intro-wrap">
+                        <p>
+                            京都自桓武天皇時期，從長岡京遷到平安京以後開始發展。為了擺脫南都奈良一帶寺院勢力的影響，784年，長岡京的建設者藤原種繼遭到反對勢力的暗殺。京都也是天智系為了擺脫天武系而建設起來的都城（794年）。平安京是按照中國隋唐時代的京都格局設計出來的城市，隋唐洛陽城北有邙山，南有龍門山，東南方向洛水貫都。
+                        </p>
+                        <img src="./ex11_eg/intro1.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>
+                            金閣寺（舍利殿）是一座緊鄰鏡湖池畔的三層樓閣狀建築，一樓是延續了當初藤原時代樣貌的「法水院」（屬寢殿造風格，也就是平安時代的貴族建築風），二樓是鎌倉時期的「潮音洞」（一種武家造，意指武士建築風格），三樓則為中國（唐朝）風格的「究竟頂」（屬禪宗佛殿建築）。寺頂有寶塔狀的結構，頂端有隻象徵吉祥的金鳳凰裝飾。
+                        </p>
+                        <img src="./ex11_eg/intro2.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>
+                            西本願寺（日語：西本願寺）是淨土真宗本願寺派的本山，位於日本京都府京都市下京區，正式名稱為龍谷山本願寺。本願寺是淨土真宗最大教派，為親鸞所創，最初本山為1272年（文永9年）所建大谷本願寺，後經歷多次戰亂遷徙，1591年（天正19年）第11任門主顯如得到關白豐臣秀吉支持，將本山遷至現址。
+                        </p>
+                        <img src="./ex11_eg/intro3.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>
+                            伏見稻荷大社位於稻荷山的山麓，在傳統上整個稻荷山的範圍都被視為是神域（聖地）的範圍。伏見稻荷大社主要是祀奉以宇迦之御魂大神為首的諸位稻荷神，自古以來就是農業與商業的神明，除此之外也配祀包括佐田彥大神、大宮能賣大神、田中大神與四大神等其他的神明。由於每年都有大量的香客前來神社祭拜求取農作豐收、生意興隆、交通安全，使得該神社成為京都地區香火最盛的神社之一。
+                        </p>
+                        <img src="./ex11_eg/intro4.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>
+                            17世紀政治中心轉移到江戶（今東京），京都人口超過50萬，成為繼江戶、大阪之後的日本第三大都市。明治維新以後設立京都府，將以前的京都分為「上京區」和「下京區」。1889年，上京區和下京區合併為京都府管轄下的京都市。
+
+                            現在的京都市因為將周邊的村莊合併，以前京都的範圍嚴格的說僅是現在京都市內的一部分，和現在的京都府，京都市都有所不同，但京都這個稱呼一般就是指京都市。
+                        </p>
+                        <img src="./ex11_eg/intro5.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
