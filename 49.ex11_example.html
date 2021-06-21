@@ -81,6 +81,9 @@
             align-items: center;
             background-color: lightblue;
             padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
 
         nav p {
@@ -109,6 +112,12 @@
         .icons i {
             font-size: 2rem;
             margin: 10px;
+        }
+
+        @media (max-width:1150px) {
+            .icons {
+                display: none;
+            }
         }
 
         .intro {
@@ -163,6 +172,26 @@
 
         .intro-wrap:nth-child(2n-1) img {
             margin-left: 200px;
+        }
+
+        @media (max-width:1150px) {
+            .intro-wrap {
+                margin-top: 0;
+                padding: 10px;
+            }
+
+            .intro-wrap p {
+                position: static;
+                width: 100%;
+                padding: 30px 0px;
+                background-color: transparent;
+                border: 2px transparent dashed;
+            }
+
+            .intro .intro-wrap img {
+                width: 100%;
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -290,9 +319,14 @@
         }
 
         $(window).scroll(function () {
+            // 用 jQuery 的 each 迴圈，把每一個 .intro-wrap 拿出來檢查
+            // 這裡總共會跑五次，index 會從 0 到 4 執行五次
+            // item 則是每一個 .intro-wrap 物件
             $('.intro-wrap').each(function (index, item) {
                 console.log('item:', $(item).offset().top);
 
+                // 當使用者滑動超過我們某一個 .intro-wrap 在網頁的高
+                // 表示已經到了要 show 的時機點，因此我們給他 .addClass('show')
                 if ($(window).scrollTop() + $(window).height() >= $(item).offset().top) {
                     $(item).addClass('show');
                 }
