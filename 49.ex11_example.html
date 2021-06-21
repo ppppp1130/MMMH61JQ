@@ -131,6 +131,14 @@
         .intro-wrap {
             position: relative;
             margin-top: 200px;
+            transform: translateY(200px);
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .intro-wrap.show {
+            transform: translateY(0px);
+            opacity: 1;
         }
 
         .intro-wrap p {
@@ -280,6 +288,19 @@
             const positionX = nowPage * -1 * bannerWidth;
             $('.banner ul').css('transform', `translateX(${positionX}px)`);
         }
+
+        $(window).scroll(function () {
+            $('.intro-wrap').each(function (index, item) {
+                console.log('item:', $(item).offset().top);
+
+                if ($(window).scrollTop() + $(window).height() >= $(item).offset().top) {
+                    $(item).addClass('show');
+                }
+                else {
+                    $(item).removeClass('show');
+                }
+            });
+        });
     </script>
 </body>
 
