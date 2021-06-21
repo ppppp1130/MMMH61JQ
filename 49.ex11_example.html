@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ex11 example</title>
+    <title>ex11 example red icon</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -32,9 +32,10 @@
             padding: 0;
             margin: 0;
             height: 100%;
+            transition: .5s;
 
             display: flex;
-            width: 500%;
+            width: 700%;
         }
 
         .banner ul li {
@@ -200,11 +201,13 @@
     <section>
         <div class="banner">
             <ul>
+                <li><img src="./ex11_eg/5.jpg" alt=""></li>
                 <li><img src="./ex11_eg/1.jpg" alt=""></li>
                 <li><img src="./ex11_eg/2.jpg" alt=""></li>
                 <li><img src="./ex11_eg/3.jpg" alt=""></li>
                 <li><img src="./ex11_eg/4.jpg" alt=""></li>
                 <li><img src="./ex11_eg/5.jpg" alt=""></li>
+                <li><img src="./ex11_eg/1.jpg" alt=""></li>
             </ul>
 
 
@@ -280,8 +283,8 @@
 
     <script>
 
-        let nowPage = 0;
-
+        let nowPage = 1;
+        changePage();
         $('.left-arrow-area').click(function () {
             console.log('left-arrow-area clicked');
 
@@ -294,7 +297,7 @@
             // 現在的 js 寫法
             // 利用 return 的特性，直接結束這個 function
             // 這裡的 if 條件，寫的是不執行的情況
-            if (nowPage === 0) return;
+            // if (nowPage === 0) return;
 
             // 以下，就是要執行的程式碼。
             nowPage = nowPage - 1;
@@ -304,19 +307,68 @@
         });
         $('.right-arrow-area').click(function () {
             console.log('right-arrow-area clicked');
-            if (nowPage === 4) return;
+            // if (nowPage === 4) return;
             nowPage = nowPage + 1;
             console.log('nowPage', nowPage);
 
             changePage();
         });
 
+        // 有 transition 的改變畫面
         function changePage() {
             // 改變圖片
             const bannerWidth = $('.banner').width();
             const positionX = nowPage * -1 * bannerWidth;
-            $('.banner ul').css('transform', `translateX(${positionX}px)`);
+            $('.banner ul').css('transition', '0.5s').css('transform', `translateX(${positionX}px)`);
         }
+
+        // 沒有 transition 的改變畫面
+        function changePageQuietly() {
+            // 改變圖片
+            const bannerWidth = $('.banner').width();
+            const positionX = nowPage * -1 * bannerWidth;
+            $('.banner ul').css('transition', 'none').css('transform', `translateX(${positionX}px)`);
+        }
+
+        // setInterval 其實有一個隱藏 id 值
+        // 我們如果要停止某一個 setInterval 的話，要先把這個 id 記錄起來
+        let myInterval;
+        startMyInterval();
+
+        function startMyInterval() {
+            myInterval = setInterval(function () {
+                nowPage++;
+                changePage();
+            }, 2000);
+        }
+
+        $('.banner').mouseenter(function () {
+            clearInterval(myInterval);
+        });
+        $('.banner').mouseleave(function () {
+            startMyInterval();
+        });
+
+
+        // ul這輛火車每次移動完的時候，會觸發這個事件
+        $('.banner ul').on('transitionend', function () {
+            // 檢查我目前顯示的 page 是否為第一張或最後一張
+            // 如果是的話，要快點換成真正的第一張或最後一張
+            console.log('transitionend');
+
+            if (nowPage >= 6) {
+                nowPage = 1;
+                changePageQuietly();
+            }
+            if (nowPage <= 0) {
+                nowPage = 5;
+                changePageQuietly();
+            }
+        });
+
+        $(window).resize(function () {
+            changePageQuietly();
+        })
 
         $(window).scroll(function () {
             // 用 jQuery 的 each 迴圈，把每一個 .intro-wrap 拿出來檢查
