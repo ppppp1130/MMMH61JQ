@@ -5,27 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ex12</title>
+    <title>scroll to top</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
     <style>
         body {
-            height: 1000vh;
+            width: 100%;
+            height: 300vh;
+            background-color: rgb(158, 39, 39);
         }
 
-        .navbar {
-            transition: .5s;
-        }
-
-        .navbar.hide {
-            transform: translateY(-100px);
+        .btnToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,32 +61,16 @@
             </form>
         </div>
     </nav>
+    <button class="btnToTop btn btn-primary">click</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
-        let lastScroll = 0;
-
-        $(window).scroll(function () {
-            const nowScroll = $(window).scrollTop();
-            console.log('lastScroll', lastScroll);
-            console.log('nowScroll', nowScroll);
-
-            // 1.判斷使用者往上或往下
-            if (lastScroll < nowScroll) {
-                $('.navbar').addClass('hide');
-            }
-            else {
-                $('.navbar').removeClass('hide');
-            }
-
-            // 2.更新 lastScroll
-            lastScroll = nowScroll;
+        $(".btnToTop").click(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
         });
-
-
-
     </script>
 </body>
 
